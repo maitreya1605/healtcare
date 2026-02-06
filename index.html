@@ -3,75 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <title>MediPedia | Trusted Health Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-.nav{
-    background-color: blue;
-    border: 2px solid black;
-    display: flex;
-    height: 90px;
-    align-items: center;
-    padding: 5px;
-    justify-content: space-between;
-    
-}
-.about{
-    display: flex;
-    justify-content: space-between;
-}
-body {
-    margin: 0;
-    padding: 0; /* Good practice to add this too */
-}
+        :root {
+            --primary-blue: #0056b3;
+            --light-blue: #e3f2fd;
+            --accent-green: #28a745;
+            --text-dark: #343a40;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Utility: Top Bar */
+        .top-bar {
+            background-color: #0056b3;
+            color: white;
+            font-size: 0.9rem;
+            padding: 8px 0;
+        }
+        .Influenza{
+            background-image: url("image/influnza.png");
+            background-size: cover;
+            background-color: white;
+            border-radius: 10px;
+        }
+        .Hypertension{
+            background-image: url("image/Hypertension.png");
+            background-size: cover;
+        }
+        .Migraine{
+            background-image: url("/image/Migraine.png");
+            background-size: cover;
+        }
+
+        /* Branding */
+        .brand-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .brand-logo i {
+            color:#28a745;
+        }
+
+        /* Navigation - Custom No-JS Friendly */
+        .main-nav {
+            border-bottom: 3px solid #0056b3;
+            background: white;
+            padding: 15px 0;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: #343a40;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover {
+            background-color: #e3f2fd;
+            color: #0056b3;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            /* background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), url('https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpe');  */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 170px 0;
+            margin-bottom: 40px;
+            height: 85vh;
+            background-image: url("https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg");
+        }
+        
+        /* Content Cards */
+        .health-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            height: 100%;
+            /* background: white; */
+        }
+        .health-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .card-header-custom {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: bold;
+            padding: 15px;
+        }
+        
+        /* Section Dividers */
+        .section-title {
+            border-left: 5px solid var(--accent-green);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding-top: 60px;
+            margin-top: 60px;
+        }
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: white;
+        }
+        .disclaimer-box {
+            background-color: #343a40;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <div>logo</div>
-        <div class="navb">
-            <a href="">home</a>
-            <a href="">home</a>
-            <a href="">home</a>
-            <a href="">home</a>
-        </div>    
-    </div>
-     <!-- hero -->
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    
-    <div class="carousel-item active">
-        <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg" class="img-fluid " alt="..." style="height: 88vh;width: 100%;"  >
+
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between">
+            <span><i class="fas fa-phone-alt me-2"></i>Emergency Hotline: <strong>1-800-MED-HELP</strong></span>
+            <span><i class="fas fa-globe me-2"></i>Global Health Database</span>
+        </div>
     </div>
 
-    <div class="carousel-item">
-<img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg" class="img-fluid " alt="..." style="height: 88vh;width: 100%;"  >    </div>
+    <div class="main-nav sticky-top">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <a href="#" class="brand-logo">
+                    <i class="fas fa-heartbeat"></i> MediPedia
+                </a>
+                <nav class="d-flex flex-wrap gap-2">
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#" class="nav-link">Diseases A-Z</a>
+                    <a href="#" class="nav-link">Symptoms</a>
+                    <a href="#" class="nav-link">Treatments</a>
+                    <a href="#" class="nav-link">First Aid</a>
+                </nav>
+            </div>
+        </div>
+    </div>
 
-    <div class="carousel-item">
-<img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg" class="img-fluid " alt="..." style="height: 88vh;width: 100%;"  >    </div>
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Your Health, Decoded.</h1>
+            <p class="lead mb-5">Access a massive library of 10,000+ medically reviewed articles on diseases, symptoms, and cures. Knowledge is the first step to recovery.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#diseases" class="btn btn-success btn-lg px-5">Browse Diseases</a>
+                <a href="#symptoms" class="btn btn-outline-light btn-lg px-5">Symptom Checker</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="carousel-item">
-<img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg" class="img-fluid " alt="..." style="height: 88vh;width: 100%;"  >    </div>
+    <div class="container my-5 " id="diseases">
+        <h2 class="section-title">Trending Health Topics</h2>
+        <div class="row g-4 ">
+            <div class="col-md-6 col-lg-4 ">
+                <div class="health-card p-4 Influenza">
+                    <div class="text-primary mb-3"><i class="fas fa-virus fa-3x"></i></div>
+                    <h3>Viral Influenza</h3>
+                    <p class="text-muted">Influenza is a viral infection that attacks your respiratory system. Symptoms typically include high fever, muscle aches, and severe fatigue.</p>
+                    <ul class="list-unstyled mb-4 small">
+                        <li><i class="fas fa-check text-success me-2"></i>Contagious: High</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Vaccine Available: Yes</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-primary w-100">Read Full Cure &rarr;</a>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 ">
+                <div class="health-card p-4 Hypertension">
+                    <div class="text-danger mb-3"><i class="fas fa-heart fa-3x"></i></div>
+                    <h3>Hypertension</h3>
+                    <p class="text-muted">High blood pressure is a common condition where the long-term force of the blood against your artery walls is high enough to cause heart disease.</p>
+                    <ul class="list-unstyled mb-4 small">
+                        <li><i class="fas fa-check text-success me-2"></i>Chronic Condition</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Dietary Management</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-primary w-100">Read Full Cure &rarr;</a>
+                </div>
+            </div>
 
-  </div>
-  
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-    <!-- <div>
-        <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg" class="img-fluid " alt="..." style="height: 88vh;width: 100%;"  >
-    </div> -->
-<div class="about">
-    <div>about us</div>
-    <div>img</div>
-</div>
+            <div class="col-md-6 col-lg-4">
+                <div class="health-card p-4 Migraine">
+                    <div class="text-warning mb-3"><i class="fas fa-brain fa-3x"></i></div>
+                    <h3>Migraine & Headaches</h3>
+                    <p class="text-muted">A migraine can cause severe throbbing pain or a pulsing sensation, usually on one side of the head. It's often accompanied by nausea.</p>
+                    <ul class="list-unstyled mb-4 small">
+                        <li><i class="fas fa-check text-success me-2"></i>Neurological</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Trigger Based</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-primary w-100">Read Full Cure &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5 bg-white p-5 shadow-sm rounded border">
+        <h2 class="section-title">Common Symptoms Reference Guide</h2>
+        <p class="mb-4">Quickly reference symptoms to understand potential underlying conditions. Note: This table is for educational purposes only.</p>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th width="20%">Symptom</th>
+                        <th width="30%">Possible Causes</th>
+                        <th width="30%">Recommended Action</th>
+                        <th width="20%">Urgency Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">Chest Pain</td>
+                        <td>Angina, Heart Attack, Acid Reflux, Muscle Strain</td>
+                        <td>Call Emergency Services immediately if pain spreads to arm/jaw.</td>
+                        <td><span class="badge bg-danger">Critical</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Persistent Cough</td>
+                        <td>Cold, Flu, Bronchitis, Pneumonia, Asthma</td>
+                        <td>Stay hydrated, use cough suppressants. See doctor if > 2 weeks.</td>
+                        <td><span class="badge bg-warning text-dark">Moderate</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Skin Rash</td>
+                        <td>Allergies, Eczema, Infection, Contact Dermatitis</td>
+                        <td>Apply hydrocortisone cream. Monitor for spreading.</td>
+                        <td><span class="badge bg-info text-dark">Low</span></td>
+                    </tr>
+                     <tr>
+                        <td class="fw-bold">High Fever (>103°F)</td>
+                        <td>Viral/Bacterial Infection, Heat Stroke</td>
+                        <td>Cool down, take fever reducers. Seek help if persistent.</td>
+                        <td><span class="badge bg-danger">High</span></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Blurry Vision</td>
+                        <td>Diabetes, Cataracts, Stroke, Eye Strain</td>
+                        <td>Rest eyes. If sudden onset, go to ER immediately.</td>
+                        <td><span class="badge bg-danger">Critical</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <h2 class="section-title">Latest Medical Research</h2>
+                
+                <article class="mb-4 pb-4 border-bottom">
+                    <h3 class="h4 text-primary">New Breakthroughs in Insulin Therapy</h3>
+                    <p class="text-muted small">Posted on Oct 24, 2023 | By Dr. Sarah Jenkins</p>
+                    <p>Researchers have identified a new method for synthetic insulin delivery that could reduce the frequency of injections for Type 1 Diabetics. This study, conducted over a 5-year period, shows promising results for long-term glucose management...</p>
+                    <a href="#" class="text-decoration-none fw-bold">Read Article &rarr;</a>
+                </article>
+
+                <article class="mb-4 pb-4 border-bottom">
+                    <h3 class="h4 text-primary">The Impact of Sleep on Immune System</h3>
+                    <p class="text-muted small">Posted on Oct 22, 2023 | By Dr. A. Patel</p>
+                    <p>A lack of sleep doesn't just make you grumpy. Clinical studies link sleep deprivation to a 40% reduction in immune cell efficacy. We explore the biological mechanisms behind rest and recovery...</p>
+                    <a href="#" class="text-decoration-none fw-bold">Read Article &rarr;</a>
+                </article>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="p-4 bg-light border rounded">
+                    <h4><i class="fas fa-envelope-open-text me-2"></i>Health Newsletter</h4>
+                    <p class="small text-muted">Join 50,000+ subscribers getting weekly health tips.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="name@example.com">
+                        </div>
+                        <button class="btn btn-primary w-100">Subscribe Free</button>
+                    </form>
+                    <hr>
+                    <h5>Quick Categories</h5>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-secondary p-2">Pediatrics</span>
+                        <span class="badge bg-secondary p-2">Cardiology</span>
+                        <span class="badge bg-secondary p-2">Dermatology</span>
+                        <span class="badge bg-secondary p-2">Nutrition</span>
+                        <span class="badge bg-secondary p-2">Mental Health</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-3">MediPedia</h5>
+                    <p>Our mission is to make medical knowledge accessible to everyone. All content is reviewed by medical professionals for accuracy and clarity.</p>
+                    <div class="mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="text-white mb-3">Diseases</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Viral Infections</a></li>
+                        <li class="mb-2"><a href="#">Cancer Types</a></li>
+                        <li class="mb-2"><a href="#">Heart Conditions</a></li>
+                        <li class="mb-2"><a href="#">Chronic Pain</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="text-white mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Medical Board</a></li>
+                        <li class="mb-2"><a href="#">Careers</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Legal</h5>
+                    <div class="disclaimer-box border border-secondary">
+                        <strong>DISCLAIMER:</strong> The content on this website is for informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician.
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary py-4 mt-4 text-center">
+                <p class="mb-0">&copy; 2026 MediPedia Healthcare Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
