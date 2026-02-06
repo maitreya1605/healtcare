@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseases A-Z | MediPedia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --light-blue: #e3f2fd;
+            --accent-green: #28a745;
+            --text-dark: #343a40;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* --- Reused Navigation Styles --- */
+        .top-bar { background-color: var(--primary-blue); color: white; font-size: 0.9rem; padding: 8px 0; }
+        .brand-logo { font-size: 2rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; }
+        .main-nav { border-bottom: 3px solid var(--primary-blue); background: white; padding: 15px 0; }
+        .nav-link { font-weight: 600; color: var(--text-dark); text-transform: uppercase; padding: 10px 15px; border-radius: 5px; }
+        .nav-link:hover { background-color: var(--light-blue); color: var(--primary-blue); }
+        .nav-link.active { color: var(--primary-blue); }
+
+        /* --- Page Specific Styles --- */
+        
+        /* The Alphabet Jump Bar */
+        .alpha-nav {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+        }
+        .alpha-link {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f1f3f5;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .alpha-link:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Disease List Items */
+        .disease-group-title {
+            border-bottom: 2px solid var(--text-dark);
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            color: var(--primary-blue);
+            font-size: 2rem;
+        }
+
+        .disease-item {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-left: 5px solid transparent;
+            margin-bottom: 15px;
+            transition: all 0.2s;
+        }
+        .disease-item:hover {
+            border-left-color: var(--accent-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+        
+        /* Badges */
+        .badge-chronic { background-color: #6f42c1; }
+        .badge-viral { background-color: #dc3545; }
+        .badge-lifestyle { background-color: #fd7e14; }
+        .badge-genetic { background-color: #20c997; }
+
+        /* Footer */
+        footer { background-color: #212529; color: #adb5bd; padding-top: 60px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between">
+            <span><i class="fas fa-phone-alt me-2"></i>Emergency: 1-800-MED-HELP</span>
+            <span>Medical Encyclopedia v2.4</span>
+        </div>
+    </div>
+
+    <div class="main-nav sticky-top">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <a href="index.html" class="brand-logo"><i class="fas fa-heartbeat"></i> MediPedia</a>
+                <nav class="d-flex flex-wrap gap-2">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link active">Diseases A-Z</a>
+                    <a href="#" class="nav-link">Symptoms</a>
+                    <a href="#" class="nav-link">Treatments</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light py-5 border-bottom">
+        <div class="container">
+            <h1>Diseases & Conditions A-Z</h1>
+            <p class="lead text-muted">Browse our comprehensive list of over 50 hard-coded medical conditions, symptoms, and treatment protocols.</p>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-3 mb-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white fw-bold">Filter by Category</div>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            Infectious Diseases <span class="badge bg-primary rounded-pill">14</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            Chronic Conditions <span class="badge bg-primary rounded-pill">8</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            Mental Health <span class="badge bg-primary rounded-pill">5</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            Rare Diseases <span class="badge bg-primary rounded-pill">3</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm border-0 mt-4">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title"><i class="fas fa-info-circle text-primary"></i> Note</h5>
+                        <p class="card-text small">This is a static directory. Use the alphabet bar to jump to specific sections.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                
+                <!-- <div class="alpha-nav sticky-top" style="top: 100px; z-index: 900;">
+                    <a href="#letter-A" class="alpha-link">A</a>
+                    <a href="#letter-B" class="alpha-link">B</a>
+                    <a href="#letter-C" class="alpha-link">C</a>
+                    <a href="#letter-D" class="alpha-link">D</a>
+                    <a href="#letter-E" class="alpha-link">E</a>
+                    <a href="#letter-H" class="alpha-link">H</a>
+                    <a href="#letter-M" class="alpha-link">M</a>
+                    <a href="#letter-P" class="alpha-link">P</a>
+                    <a href="#letter-S" class="alpha-link">S</a>
+                    <a href="#letter-T" class="alpha-link">T</a>
+                </div> -->
+
+                <div id="letter-A" class="mb-5 pt-5"> <h2 class="disease-group-title">A</h2>
+                    
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Alzheimer's Disease</h3>
+                                <span class="badge badge-chronic mb-2">Neurological</span>
+                                <p class="mb-2 text-muted">A progressive disorder that causes brain cells to waste away (degenerate) and die.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Memory loss, confusion, behavioral changes.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Anemia (Iron Deficiency)</h3>
+                                <span class="badge badge-lifestyle mb-2">Nutritional</span>
+                                <p class="mb-2 text-muted">A condition in which you lack enough healthy red blood cells to carry adequate oxygen to your body's tissues.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Fatigue, pale skin, shortness of breath.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Arthritis (Osteoarthritis)</h3>
+                                <span class="badge badge-chronic mb-2">Joints</span>
+                                <p class="mb-2 text-muted">The wearing down of the protective tissue at the ends of bones (cartilage).</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Joint pain, stiffness, swelling.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Asthma</h3>
+                                <span class="badge badge-chronic mb-2">Respiratory</span>
+                                <p class="mb-2 text-muted">A condition in which your airways narrow and swell and may produce extra mucus.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Wheezing, chest tightness, coughing.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="letter-B" class="mb-5 pt-5">
+                    <h2 class="disease-group-title">B</h2>
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Bronchitis (Acute)</h3>
+                                <span class="badge badge-viral mb-2">Infectious</span>
+                                <p class="mb-2 text-muted">Inflammation of the lining of your bronchial tubes, which carry air to and from your lungs.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Cough with mucus, fatigue, slight fever.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="letter-C" class="mb-5 pt-5">
+                    <h2 class="disease-group-title">C</h2>
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">COVID-19 (Coronavirus)</h3>
+                                <span class="badge badge-viral mb-2">Viral / Pandemic</span>
+                                <p class="mb-2 text-muted">An infectious disease caused by the SARS-CoV-2 virus.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Fever, dry cough, loss of taste/smell.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Celiac Disease</h3>
+                                <span class="badge badge-genetic mb-2">Autoimmune</span>
+                                <p class="mb-2 text-muted">An immune reaction to eating gluten, a protein found in wheat, barley, and rye.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Diarrhea, bloating, gas, fatigue.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Conjunctivitis (Pink Eye)</h3>
+                                <span class="badge badge-viral mb-2">Infectious</span>
+                                <p class="mb-2 text-muted">Inflammation or infection of the transparent membrane that lines your eyelid and eyeball.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Redness, itchiness, gritty feeling in eye.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="letter-D" class="mb-5 pt-5">
+                    <h2 class="disease-group-title">D</h2>
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Diabetes Type 1</h3>
+                                <span class="badge badge-genetic mb-2">Autoimmune</span>
+                                <p class="mb-2 text-muted">A chronic condition in which the pancreas produces little or no insulin.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Increased thirst, frequent urination, hunger.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                     <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Diabetes Type 2</h3>
+                                <span class="badge badge-lifestyle mb-2">Chronic</span>
+                                <p class="mb-2 text-muted">An impairment in the way the body regulates and uses sugar (glucose) as a fuel.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Thirst, fatigue, blurred vision.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="letter-M" class="mb-5 pt-5">
+                    <h2 class="disease-group-title">M</h2>
+                    <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Malaria</h3>
+                                <span class="badge badge-viral mb-2">Parasitic</span>
+                                <p class="mb-2 text-muted">A disease caused by a plasmodium parasite, transmitted by the bite of infected mosquitoes.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Chills, fever, sweating.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                     <div class="disease-item p-4 rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h3 class="h4 text-primary mb-1">Migraine</h3>
+                                <span class="badge badge-chronic mb-2">Neurological</span>
+                                <p class="mb-2 text-muted">A headache of varying intensity, often accompanied by nausea and sensitivity to light.</p>
+                                <div class="small text-secondary"><strong>Key Symptoms:</strong> Throbbing pain, aura, sensitivity to light.</div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container pb-4">
+            <div class="row text-center">
+                <div class="col-12">
+                    <p class="mb-0 text-muted">&copy; 2024 MediPedia. Content provided for educational purposes only.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
